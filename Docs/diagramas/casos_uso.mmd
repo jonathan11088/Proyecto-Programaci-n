@@ -1,0 +1,25 @@
+flowchart LR
+  V(["Visitante"])
+  AD(["Administrador"])
+  CA(["Cajero"])
+  CL(["Cliente"])
+
+  subgraph S["Banca en Línea"]
+    R(["Registrarse como usuario"])
+    L(["Iniciar y cerrar sesión"])
+    A1(["Listar y agregar cajeros"])
+    A2(["Bloquear o desbloquear cajero"])
+    A3(["Ver monitor de transferencias"])
+    A4(["Ver análisis de logs de Apache"])
+    C1(["Crear cuenta monetaria"])
+    C2(["Registrar depósito"])
+    C3(["Registrar retiro"])
+    U1(["Agregar cuenta de tercero"])
+    U2(["Transferir a cuenta de tercero"])
+    U3(["Consultar estado de cuenta"])
+  end
+
+  V --> R
+  AD --> L & A1 & A2 & A3 & A4
+  CA --> L & C1 & C2 & C3
+  CL --> L & U1 & U2 & U3

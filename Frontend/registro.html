@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro | Banco Mariano</title>
+  <link rel="icon" href="img/logo.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="acceso">
+  <header class="encabezado">
+    <a class="marca" href="index.html"><img src="img/logo.svg" alt="">Banco Mariano</a>
+  </header>
+  <main>
+    <section class="tarjeta angosta">
+      <h1>Registro de nuevo usuario</h1>
+      <p class="nota">Tu cuenta bancaria debe haber sido creada antes por un cajero.</p>
+      <form id="formulario">
+        <label>No. Cuenta Bancaria<input name="numero" inputmode="numeric" pattern="\d{6,20}" title="De 6 a 20 dígitos" required></label>
+        <label>Correo Electrónico<input name="correo" type="email" autocomplete="username" required></label>
+        <label>DPI<input name="dpi" inputmode="numeric" pattern="\d{13}" title="13 dígitos" required></label>
+        <label>Contraseña<input name="clave" type="password" minlength="8" maxlength="72" autocomplete="new-password" required></label>
+        <label>Confirmación de Contraseña<input name="confirmacion" type="password" minlength="8" maxlength="72" autocomplete="new-password" required></label>
+        <button type="submit">Registrarme</button>
+      </form>
+      <p class="nota"><a href="login.html?rol=cliente">Ya tengo usuario</a></p>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+  <script src="js/registro.js"></script>
+</body>
+</html>

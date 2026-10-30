@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de usuario | Banco Mariano</title>
+  <link rel="icon" href="img/logo.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="encabezado">
+    <a class="marca" href="cliente.html"><img src="img/logo.svg" alt="">Banco Mariano</a>
+    <span class="usuario-actual" id="nombre-usuario"></span>
+    <button class="secundario pequeno" id="salir">Salir</button>
+  </header>
+  <main hidden>
+    <h1>Panel de usuario</h1>
+    <div class="pestanas">
+      <button data-seccion="estado">Estado de cuenta</button>
+      <button data-seccion="transferir">Transferir</button>
+      <button data-seccion="terceros">Cuentas de terceros</button>
+    </div>
+
+    <section class="tarjeta" id="estado" hidden>
+      <h2>Estado de cuenta</h2>
+      <div class="tarjeta-saldo">
+        <p class="nota"><span id="dato-cuenta"></span></p>
+        <p class="saldo" id="dato-saldo"></p>
+      </div>
+      <div class="tabla-scroll">
+        <table>
+          <thead><tr><th>Fecha</th><th>Operación</th><th>Cuenta relacionada</th><th class="num">Débito</th><th class="num">Crédito</th><th class="num">Saldo</th></tr></thead>
+          <tbody id="lista-movimientos"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="tarjeta angosta" id="transferir" hidden>
+      <h2>Transferencia a cuenta de tercero</h2>
+      <form id="form-transferencia">
+        <label>Cuenta de tercero<select name="tercero_id" id="selector-tercero" required></select></label>
+        <p class="nota" id="limites-tercero"></p>
+        <label>Cantidad a transferir<input name="monto" type="number" min="0.01" step="0.01" required></label>
+        <button type="submit">Transferir</button>
+      </form>
+    </section>
+
+    <div id="terceros" hidden>
+      <section class="tarjeta">
+        <h2>Mis cuentas de terceros</h2>
+        <div class="tabla-scroll">
+          <table>
+            <thead><tr><th>Alias</th><th>No. Cuenta</th><th class="num">Monto máximo</th><th class="num">Máx. diario</th><th class="num">Usadas hoy</th></tr></thead>
+            <tbody id="lista-terceros"></tbody>
+          </table>
+        </div>
+      </section>
+      <section class="tarjeta">
+        <h2>Agregar cuenta de tercero</h2>
+        <form id="form-tercero">
+          <label>No. Cuenta<input name="numero" inputmode="numeric" pattern="\d{6,20}" title="De 6 a 20 dígitos" required></label>
+          <label>Monto Máximo<input name="monto_maximo" type="number" min="0.01" step="0.01" required></label>
+          <label>Cantidad máxima de transacciones diarias<input name="max_transacciones" type="number" min="1" max="1000" step="1" required></label>
+          <label>Alias<input name="alias" maxlength="60" required></label>
+          <button type="submit">Agregar</button>
+        </form>
+      </section>
+    </div>
+  </main>
+  <script src="js/app.js"></script>
+  <script src="js/cliente.js"></script>
+</body>
+</html>

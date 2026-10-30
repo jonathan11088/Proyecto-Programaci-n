@@ -1,0 +1,16 @@
+flowchart LR
+  U["Navegador<br/>computadora o smartphone"] -->|HTTPS| R["Proxy de Render"]
+  subgraph C["Servicio en Render"]
+    A["Apache 2.4"]
+    F["Frontend<br/>HTML5, CSS3, JavaScript"]
+    B["Backend /api<br/>PHP 8.2 + PDO"]
+    D[("MariaDB (compatible con MySQL)<br/>tablas y procedimientos almacenados")]
+    L["access.log"]
+    G["GoAccess<br/>reporte HTML cada minuto"]
+    A -->|"/"| F
+    A -->|"/api"| B
+    B -->|"CALL sp_* (solo EXECUTE)"| D
+    A --> L --> G
+    B -->|"reporte, solo admin"| G
+  end
+  R --> A

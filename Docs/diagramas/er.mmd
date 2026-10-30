@@ -1,0 +1,50 @@
+erDiagram
+  CUENTAS ||--o| USUARIOS : "tiene acceso de"
+  USUARIOS ||--o{ CUENTAS_TERCEROS : registra
+  CUENTAS ||--o{ CUENTAS_TERCEROS : "es destino de"
+  CUENTAS ||--o{ MOVIMIENTOS : "origen de"
+  CUENTAS ||--o{ MOVIMIENTOS : "destino de"
+  CUENTAS_TERCEROS ||--o{ MOVIMIENTOS : "usado en"
+  USUARIOS ||--o{ MOVIMIENTOS : realiza
+
+  CUENTAS {
+    int id PK
+    varchar numero UK
+    varchar nombre
+    char dpi
+    decimal saldo
+    datetime creado_en
+  }
+  USUARIOS {
+    int id PK
+    varchar nombre
+    varchar usuario UK
+    varchar clave_hash
+    enum rol
+    tinyint bloqueado
+    int cuenta_id FK
+    tinyint intentos
+    datetime bloqueado_hasta
+    datetime creado_en
+  }
+  CUENTAS_TERCEROS {
+    int id PK
+    int usuario_id FK
+    int cuenta_id FK
+    varchar alias
+    decimal monto_maximo
+    int max_transacciones
+    datetime creado_en
+  }
+  MOVIMIENTOS {
+    int id PK
+    enum tipo
+    int cuenta_origen_id FK
+    int cuenta_destino_id FK
+    decimal monto
+    decimal saldo_origen
+    decimal saldo_destino
+    int tercero_id FK
+    int realizado_por FK
+    datetime creado_en
+  }

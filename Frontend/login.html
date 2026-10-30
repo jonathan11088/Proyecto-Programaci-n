@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar sesión | Banco Mariano</title>
+  <link rel="icon" href="img/logo.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="acceso">
+  <header class="encabezado">
+    <a class="marca" href="index.html"><img src="img/logo.svg" alt="">Banco Mariano</a>
+  </header>
+  <main>
+    <section class="tarjeta angosta">
+      <h1 id="titulo">Iniciar sesión</h1>
+      <form id="formulario">
+        <label><span id="etiqueta-usuario">Usuario</span><input name="usuario" id="usuario" autocomplete="username" required></label>
+        <label>Clave<input name="clave" type="password" autocomplete="current-password" required></label>
+        <button type="submit">Ingresar</button>
+      </form>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

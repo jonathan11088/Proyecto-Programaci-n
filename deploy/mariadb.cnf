@@ -1,0 +1,9 @@
+[mysqld]
+# Solo acceso local por socket y consumo bajo para el plan gratuito de Render.
+skip-networking
+default-time-zone = '-06:00'
+innodb_buffer_pool_size = 64M
+innodb_log_file_size = 16M
+performance_schema = OFF
+max_connections = 30
+key_buffer_size = 8M
